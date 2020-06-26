@@ -199,7 +199,10 @@ namespace Flee.ExpressionElements.MemberElements
             {
                 if (((IEquatable<CustomMethodInfo>)cmi).Equals(first) == true)
                 {
-                    sameScores.Add(cmi);
+                    if (cmi.Target.DeclaringType == first.Target.DeclaringType)
+                    {
+                        sameScores.Add(cmi);
+                    }
                 }
             }
 
